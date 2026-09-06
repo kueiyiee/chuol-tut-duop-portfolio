@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-comic: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive, sans-serif;
+
+  --color-canvas: #030712;
+  --color-canvas-card: #080f24;
+  --color-electric-blue: #3b82f6;
+  --color-cyber-cyan: #0ea5e9;
+  --color-neon-sky: #38bdf8;
+  --color-ice-blue: #e0f2fe;
+  --color-brand-blue: #2563eb;
+  
+  --color-midnight-950: #020617;
+  --color-midnight-900: #030712;
+  --color-midnight-850: #070d1e;
+  --color-midnight-800: #0c142b;
+  --color-sapphire-700: #1d4ed8;
+  --color-sapphire-600: #2563eb;
+  --color-sapphire-500: #3b82f6;
+  --color-slate-400: #94a3b8;
+  --color-slate-200: #e2e8f0;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-200: #a5f3fc;
+  --color-ice-100: #f0f9ff;
+  --color-snow-50: #f8fafc;
+  --color-obsidian-900: #050a18;
+  --color-obsidian-950: #030712;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: #2563eb;
+    color: #ffffff;
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-comic {
+  font-family: var(--font-comic), "Comic Sans MS", "Comic Sans", cursive, sans-serif !important;
+}
+
+/* Elegant dark ambient blue glow effect */
+.ambient-glow {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, rgba(3, 7, 18, 0) 70%);
+}
+
+/* High-Tech Cyber & Dot Matrix Backgrounds */
+.bg-topo-pattern {
+  background-image: radial-gradient(rgba(59, 130, 246, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.dark .bg-topo-pattern {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Modern Glassmorphism Core Engine - AletCloud Grade */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(219, 234, 254, 0.85);
+  box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+}
+
+.dark .glass-panel {
+  background: rgba(7, 13, 30, 0.72);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  box-shadow: 0 14px 38px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(147, 197, 253, 0.12);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(224, 242, 254, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+  border-radius: 1rem;
+}
+
+.dark .glass-card {
+  background: rgba(8, 16, 38, 0.75);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(59, 130, 246, 0.24);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.75), inset 0 1px 1px 0 rgba(147, 197, 253, 0.14);
+  border-radius: 1rem;
+}
+
+.glass-card-interactive {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-interactive:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.18), inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+}
+
+.dark .glass-card-interactive:hover {
+  background: rgba(12, 23, 54, 0.86);
+  border-color: rgba(96, 165, 250, 0.48);
+  box-shadow: 0 24px 48px -10px rgba(0, 0, 0, 0.8), 0 0 24px 0 rgba(59, 130, 246, 0.22), inset 0 1px 2px 0 rgba(147, 197, 253, 0.22);
+  transform: translateY(-3px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.05);
+}
+
+.dark .glass-pill {
+  background: rgba(6, 12, 28, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+.dark .glass-input {
+  background: rgba(5, 10, 24, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.dark .glass-input:focus {
+  background: rgba(8, 15, 36, 0.92);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), inset 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer and floating orb animations */
+@keyframes float-ambient {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -25px) scale(1.06);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes float-ambient-alt {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, -30px) scale(1.08);
+  }
+}
+
+.animate-float-slow {
+  animation: float-ambient 18s ease-in-out infinite;
+}
+
+.animate-float-alt {
+  animation: float-ambient-alt 22s ease-in-out infinite;
+}
+
+/* Print Styles specifically for CV modal content */
+@media print {
+  @page {
+    margin: 12mm 15mm;
+    size: A4 portrait;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide everything outside the CV modal during print */
+  nav,
+  main,
+  footer,
+  #main-content,
+  #particles-container,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure CV modal overlay and container become the natural flow on paper */
+  #cv-modal-overlay {
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    z-index: auto !important;
+  }
+
+  #cv-modal-container {
+    position: static !important;
+    display: block !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    max-height: none !important;
+    height: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border-radius: 0 !important;
+  }
+
+  .cv-print-content {
+    background: #ffffff !important;
+    color: #111827 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  .cv-print-content * {
+    color: #111827 !important;
+    background: transparent !important;
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Specific elements in CV content that need crisp borders */
+  .cv-print-content .border-b,
+  .cv-print-content .border-t,
+  .cv-print-content .border-y {
+    border-color: #d1d5db !important;
+  }
+
+  .cv-print-content img {
+    border-color: #6b7280 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .cv-print-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .cv-page-break {
+    break-before: page !important;
+    page-break-before: always !important;
+    margin-top: 2rem !important;
+    padding-top: 2rem !important;
+  }
+}
+

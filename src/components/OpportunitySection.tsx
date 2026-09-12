@@ -29,7 +29,7 @@ export const OpportunitySection: React.FC<OpportunitySectionProps> = ({ onOpenCV
                 <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
                   <Briefcase className="h-3.5 w-3.5" />
                 </div>
-                <span>06 / OPEN TO</span>
+                <span>07 / OPEN TO</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">Research, fieldwork &amp; internships.</h2>
               <p className="max-w-xl text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed font-light">

@@ -14,8 +14,9 @@ const SECTIONS: Section[] = [
   { id: 'projects', name: 'Selected Projects', shortName: 'Projects', number: '03' },
   { id: 'fieldwork', name: 'Field Journal', shortName: 'Fieldwork', number: '04' },
   { id: 'education', name: 'Academic Journey', shortName: 'Education', number: '05' },
-  { id: 'opportunities', name: 'Open Opportunities', shortName: 'Opportunities', number: '06' },
-  { id: 'contact', name: 'Contact & Inquiries', shortName: 'Contact', number: '07' },
+  { id: 'skills', name: 'Skills & Competencies', shortName: 'Skills', number: '06' },
+  { id: 'opportunities', name: 'Open Opportunities', shortName: 'Opportunities', number: '07' },
+  { id: 'contact', name: 'Contact & Inquiries', shortName: 'Contact', number: '08' },
 ];
 
 export const ScrollProgress: React.FC = () => {

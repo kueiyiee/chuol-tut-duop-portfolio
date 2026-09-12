@@ -43,20 +43,18 @@ export const Projects: React.FC = () => {
       className="border-t border-slate-200 py-16 text-slate-800 dark:border-slate-800 dark:text-slate-100 lg:py-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <header className="mb-8 text-left">
-          <div className="flex items-center gap-3 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-blue-600 dark:text-sky-400">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
-              <FolderOpen className="h-3.5 w-3.5" />
+        <header className="mb-10 flex flex-col gap-5 border-b border-[#DDD8CF] pb-6 text-left dark:border-white/10 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-[#8B735B] dark:text-[#B8AFA3]">
+              <FolderOpen className="h-4 w-4" />
+              <span>03 / PROJECTS</span>
             </div>
-            <span>03 / PROJECTS</span>
-          </div>
-          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              Selected Work
+            <h2 className="mt-4 font-serif text-4xl leading-none tracking-[-0.04em] text-[#20211F] dark:text-[#F7F6F2] sm:text-5xl">
+              Selected work.
             </h2>
-            <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-              Research · Fieldwork · Analysis
-            </div>
+          </div>
+          <div className="max-w-xs text-sm leading-6 text-[#625C54] dark:text-[#C9C2B8]">
+            Research, fieldwork, and digital environmental analysis.
           </div>
         </header>
 
@@ -78,55 +76,66 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        <div className="space-y-3">
-          {filteredProjects.map((project) => (
+        <div className="space-y-14 sm:space-y-20">
+          {filteredProjects.map((project, index) => {
+            const imageFirst = index % 2 === 0;
+
+            return (
             <article
               key={project.id}
-              className="group cursor-pointer border border-slate-200 bg-white/80 transition-all duration-300 hover:border-blue-200 hover:bg-slate-50 dark:border-slate-700/80 dark:bg-slate-900/80 dark:hover:border-sky-400/30 dark:hover:bg-slate-900"
+              className="group cursor-pointer"
               onClick={() => openProject(project)}
             >
-              <div className="grid items-center gap-4 px-4 py-4 sm:px-5 md:grid-cols-[52px_minmax(0,1.3fr)_minmax(0,0.8fr)_164px] md:gap-5 md:py-5">
-                <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
-                  {project.number}
+              <div className={`grid items-center gap-7 lg:grid-cols-2 lg:gap-14 ${imageFirst ? '' : 'lg:[&>*:first-child]:order-2'}`}>
+                <div className="relative overflow-hidden border border-[#DDD8CF] bg-[#EAE6DE] shadow-[0_16px_40px_rgba(32,33,31,0.07)] dark:border-white/10 dark:bg-[#20211F]">
+                  <div className="absolute left-4 top-4 z-10 text-[10px] font-mono uppercase tracking-[0.2em] text-white mix-blend-difference">
+                    Project / {project.number}
+                  </div>
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.02] group-hover:brightness-105"
+                    loading={index > 0 ? 'lazy' : 'eager'}
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
 
-                <div className="min-w-0">
-                  <div className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                <div className="min-w-0 py-2">
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#7F9A8A] dark:text-[#7F9A8A]">
                     <FileText className="h-3 w-3" />
                     <span>{project.category}</span>
                   </div>
-                  <h3 className="mt-2 text-lg font-semibold tracking-[-0.03em] text-slate-900 transition-transform duration-300 group-hover:-translate-y-0.5 dark:text-white sm:text-xl">
+                  <h3 className="mt-4 max-w-lg font-serif text-3xl leading-[0.98] tracking-[-0.04em] text-[#20211F] transition-transform duration-500 group-hover:translate-x-1 dark:text-[#F7F6F2] sm:text-4xl">
                     {project.title}
                   </h3>
-                </div>
-
-                <div className="hidden md:block">
-                  <div className="relative overflow-hidden rounded-[14px] border border-slate-200 bg-slate-100 opacity-0 transition-all duration-300 group-hover:opacity-100 dark:border-slate-700 dark:bg-slate-800/80">
-                    <img
-                      src={project.image}
-                      alt={project.imageAlt}
-                      className="h-16 w-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+                  <p className="mt-5 max-w-lg text-sm leading-7 text-[#625C54] dark:text-[#C9C2B8]">
+                    {project.shortDescription}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.environmentalThemes.slice(0, 3).map((theme) => (
+                      <span key={theme} className="border border-[#DDD8CF] px-2.5 py-1 text-[10px] font-mono uppercase tracking-[0.12em] text-[#8B735B] dark:border-white/10 dark:text-[#B8AFA3]">
+                        {theme}
+                      </span>
+                    ))}
                   </div>
-                </div>
-
-                <div className="flex justify-end">
+                  <div className="mt-8 flex justify-start">
                   <button
                     type="button"
                     onClick={(event) => {
                       event.stopPropagation();
                       openProject(project);
                     }}
-                    className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-700 transition-colors duration-200 hover:text-blue-700 dark:text-slate-300 dark:hover:text-sky-300"
+                    className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-[#20211F] transition-colors duration-200 hover:text-[#3F6655] dark:text-[#F7F6F2] dark:hover:text-[#7F9A8A]"
                   >
-                    View Case Study
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    View case study
+                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                   </button>
+                  </div>
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
 

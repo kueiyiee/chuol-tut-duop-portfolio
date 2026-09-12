@@ -53,8 +53,8 @@ const EMAILJS_CONFIG = {
   SERVICE_ID: (import.meta.env.VITE_EMAILJS_SERVICE_ID as string) || 'service_t77xw7d',
   TEMPLATE_ID: (import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string) || 'template_0xxxv3o',
   PUBLIC_KEY: (import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string) || '82BlkPaIfAXnlDE3Y',
-  DESTINATION_EMAIL: 'Nyuonjamestutduop@gmail.com',
-  BRAND_NAME: 'NYUON | Digital Portfolio'
+  DESTINATION_EMAIL: 'nyuonjamestutduop@gmail.com',
+  BRAND_NAME: 'CHUOL TUT DUOP | Digital Portfolio'
 };
 
 const INITIAL_FORM: FormState = {
@@ -133,7 +133,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
   const getMailtoHref = () => {
     const subject = encodeURIComponent(formData.subject || 'Portfolio Inquiry - Academic Collaboration');
     const body = encodeURIComponent(
-      `Hello Nyuon,\n\n` +
+      `Hello Chuol,\n\n` +
       `Sender Name: ${formData.from_name || 'Visitor'}\n` +
       `Sender Email: ${formData.from_email || 'Not provided'}\n` +
       `Sender Phone: ${formData.phone || 'N/A'}\n` +
@@ -360,7 +360,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
   return (
     <section
       id="contact"
-      aria-label="Contact Nyuon James Tut Duop"
+      aria-label="Contact Chuol Tut Duop"
       className="border-t border-slate-200 py-16 text-slate-800 transition-colors duration-300 dark:border-slate-800 dark:text-slate-100 lg:py-20"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -369,10 +369,10 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
             <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
               <MessageSquare className="h-3.5 w-3.5" />
             </div>
-            <span>07 / CONTACT · NYUON | DIGITAL PORTFOLIO</span>
+            <span>08 / CONTACT</span>
           </div>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Start a Conversation
+          <h2 className="max-w-3xl font-serif text-4xl leading-[0.98] tracking-[-0.04em] text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+            Let's build something meaningful.
           </h2>
           <p className="mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-400">
             Open to research, fieldwork, and professional opportunities.

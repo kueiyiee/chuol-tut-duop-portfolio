@@ -5,6 +5,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { FocusAreas } from './components/FocusAreas';
 import { EducationTimeline } from './components/EducationTimeline';
+import { SkillsDashboard } from './components/SkillsDashboard';
 import { Projects } from './components/Projects';
 import { FieldExperience } from './components/FieldExperience';
 import { OpportunitySection } from './components/OpportunitySection';
@@ -40,10 +41,6 @@ function PortfolioApp() {
         <ParticleSystem />
       </Suspense>
 
-      <div className="fixed inset-x-0 top-0 h-80 bg-gradient-to-b from-[#155E75]/8 via-[#28745A]/5 to-transparent dark:from-[#55B7C8]/10 dark:via-[#6EA8FE]/5 dark:to-transparent pointer-events-none" aria-hidden="true" />
-      <div className="fixed top-[-120px] right-[-100px] w-[440px] h-[440px] bg-gradient-to-br from-[#1D4ED8]/10 via-[#28745A]/6 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
-      <div className="fixed bottom-[-80px] left-[-60px] w-[420px] h-[420px] bg-gradient-to-tr from-[#155E75]/8 via-[#28745A]/5 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
-
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar onOpenCV={() => setCvModalOpen(true)} />
 
@@ -71,6 +68,10 @@ function PortfolioApp() {
 
             <FadeInSection>
               <EducationTimeline />
+            </FadeInSection>
+
+            <FadeInSection>
+              <SkillsDashboard />
             </FadeInSection>
 
             <FadeInSection>

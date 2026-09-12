@@ -9,7 +9,7 @@ The site presents academic work, environmental interests, field experience, skil
 Add the deployed portfolio URL here:
 
 ```text
-https://kueiyiee.tech
+https://chuol-portfolio.vercel.app/
 ```
 
 ## Highlights

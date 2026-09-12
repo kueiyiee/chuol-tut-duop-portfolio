@@ -1,176 +1,122 @@
 import React from 'react';
-import { GraduationCap, Calendar, MapPin, BookOpen, CheckCircle } from 'lucide-react';
-import { educationHistory } from '../data/portfolioData';
+import { BookOpen, GraduationCap } from 'lucide-react';
 
-export const EducationTimeline: React.FC = () => {
+type EducationEntry = {
+  period: string;
+  degree: string;
+  institution: string;
+  status?: string;
+  location: string;
+  featured?: boolean;
+};
+
+const educationEntries: EducationEntry[] = [
+  {
+    period: '2023 — PRESENT',
+    degree: 'B.Sc. Natural Resources and Management',
+    institution: 'Kebri Dahar University',
+    status: 'Fourth-Year Student · Expected July 2027',
+    location: 'Kebri Dahar, Somali Region, Ethiopia',
+    featured: true,
+  },
+  {
+    period: '2019 — 2021',
+    degree: 'Ethiopian Secondary School Leaving Certificate Examination',
+    institution: 'Gambella Secondary and Preparatory School',
+    location: 'Gambella, Ethiopia',
+  },
+  {
+    period: '2011 — 2018',
+    degree: 'Primary School Leaving Certificate Examination',
+    institution: 'RRS Junior Primary School',
+    location: 'Pinyudo, Gambella, Ethiopia',
+  },
+];
+
+const EducationBlock: React.FC<{ entry: EducationEntry }> = ({ entry }) => {
+  const isFeatured = Boolean(entry.featured);
+
   return (
-    <section
-      id="education"
-      aria-label="Academic Journey & Education"
-      className="py-20 lg:py-28 bg-transparent text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-blue-900/30 transition-colors duration-300 relative"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-14 pb-6 border-b border-slate-200 dark:border-blue-900/30 text-left">
-          <div className="text-[10px] font-mono tracking-[0.3em] uppercase text-blue-600 dark:text-sky-400 font-bold mb-2">
-            03 / ACADEMIC FOUNDATION
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Education & Academic Timeline
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mt-2 font-light">
-            Formal educational milestones spanning foundational schooling in Gambella to advanced undergraduate studies in Natural Resources at Kebri Dahar University.
-          </p>
+    <div className="relative">
+      <div className="absolute left-[18px] top-0 h-full w-px bg-slate-200 dark:bg-slate-700/80" aria-hidden="true" />
+
+      <div className="relative flex items-start gap-5 sm:gap-7">
+        <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+          <span
+            className={`relative z-10 flex h-4 w-4 items-center justify-center rounded-full border ${
+              isFeatured
+                ? 'border-blue-600 bg-blue-600 shadow-[0_0_0_5px_rgba(37,99,235,0.12)] dark:border-sky-400 dark:bg-sky-400'
+                : 'border-slate-300 bg-white dark:border-slate-600 dark:bg-slate-900'
+            }`}
+            aria-hidden="true"
+          >
+            {isFeatured ? <GraduationCap className="h-2.5 w-2.5 text-white" /> : null}
+          </span>
         </div>
 
-        {/* Timeline Container */}
-        <div className="relative space-y-8 text-left max-w-4xl">
-          {educationHistory.map((item, idx) => (
-            <div
-              key={item.id}
-              className={`relative pl-8 sm:pl-10 border-l-2 ${
-                idx === educationHistory.length - 1 ? 'border-transparent' : 'border-blue-200 dark:border-blue-900/40'
+        <article
+          className={`w-full rounded-[20px] border border-slate-200 bg-white px-5 py-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_35px_rgba(15,23,42,0.06)] dark:border-slate-700/80 dark:bg-slate-900/80 md:px-6 ${
+            isFeatured ? 'shadow-[0_18px_35px_rgba(15,23,42,0.07)] md:px-7 md:py-7' : 'md:px-6 md:py-5'
+          }`}
+        >
+          <div
+            className={`flex items-center gap-2 font-mono uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400 ${
+              isFeatured ? 'text-[10px] sm:text-[11px]' : 'text-[9px] sm:text-[10px]'
+            }`}
+          >
+            <BookOpen className="h-3 w-3" />
+            <span>{entry.period}</span>
+          </div>
+
+          <div className="mt-4 space-y-3">
+            <h3
+              className={`font-semibold tracking-[-0.02em] text-slate-900 dark:text-white ${
+                isFeatured ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'
               }`}
             >
-              {/* Timeline Marker */}
-              <div
-                className={`absolute -left-[13px] top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-transform hover:scale-110 shadow-xs z-10 ${
-                  item.isCurrent
-                    ? 'bg-blue-600 text-white dark:bg-blue-600 border-blue-400 dark:text-white'
-                    : 'bg-blue-100 dark:bg-blue-950 border-blue-400 dark:border-blue-800 text-blue-600 dark:text-sky-400'
-                }`}
-              >
-                <GraduationCap className="w-3 h-3" />
-              </div>
+              {entry.degree}
+            </h3>
 
-              {/* Content Card */}
-              <div
-                className={`p-6 sm:p-8 rounded-2xl border transition-all duration-300 mb-6 ${
-                  item.isCurrent
-                    ? 'glass-card border-blue-300 dark:border-blue-500/40 shadow-xl'
-                    : 'glass-panel border-slate-200 dark:border-blue-900/30'
-                }`}
-              >
-                {/* Header Strip */}
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <div className="flex items-center space-x-2 text-xs font-mono">
-                    <span className="flex items-center text-blue-600 dark:text-sky-400 font-semibold">
-                      <Calendar className="w-3.5 h-3.5 mr-1 text-blue-600 dark:text-sky-400" />
-                      {item.period}
-                    </span>
-                    {item.isCurrent && (
-                      <span className="px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider bg-blue-100 dark:bg-blue-950/80 border border-blue-300 dark:border-blue-700/50 text-blue-700 dark:text-sky-300 font-bold">
-                        Fourth-Year Student · Class of July 2027
-                      </span>
-                    )}
-                  </div>
+            <p
+              className={`font-medium text-slate-700 dark:text-slate-200 ${
+                isFeatured ? 'text-base sm:text-lg' : 'text-sm sm:text-base'
+              }`}
+            >
+              {entry.institution}
+            </p>
 
-                  <div className="flex items-center text-xs text-slate-500 dark:text-slate-400 font-mono">
-                    <MapPin className="w-3.5 h-3.5 mr-1 text-blue-600 dark:text-sky-400" />
-                    {item.location}
-                  </div>
-                </div>
+            {entry.status && (
+              <p className="text-sm text-slate-600 dark:text-slate-300">{entry.status}</p>
+            )}
 
-                {/* Degree & Institution */}
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-1">
-                  {item.degree}
-                </h3>
-                <div className="flex flex-wrap items-center gap-2 mb-3">
-                  <span className="text-sm font-semibold text-blue-600 dark:text-sky-300 uppercase tracking-wider">
-                    {item.institution}
-                  </span>
-                  {item.academicStanding && (
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-blue-600 text-white dark:bg-blue-900 dark:text-sky-200">
-                      {item.academicStanding}
-                    </span>
-                  )}
-                </div>
-
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 font-light">
-                  {item.description}
-                </p>
-
-                {/* 4-Year Academic Progression Matrix (For Global Evaluation) */}
-                {item.curriculumProgress && item.curriculumProgress.length > 0 && (
-                  <div className="mt-5 pt-5 border-t border-slate-200 dark:border-blue-900/30">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-blue-600 dark:text-sky-300 font-bold">
-                        <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                        <span>Four-Year Academic Progression:</span>
-                      </div>
-                      <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                        Year 4 / Senior Standing
-                      </span>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
-                      {item.curriculumProgress.map((stage) => (
-                        <div
-                          key={stage.year}
-                          className={`p-3.5 rounded-xl border text-left transition-all ${
-                            stage.status.includes('Current')
-                              ? 'bg-white/60 dark:bg-blue-950/40 border-blue-400 dark:border-blue-500/50 shadow-xs backdrop-blur-md'
-                              : 'bg-white/40 dark:bg-black/20 border-slate-200 dark:border-blue-900/30 backdrop-blur-xs'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between mb-1.5">
-                            <span className="font-bold text-xs text-slate-900 dark:text-white">
-                              {stage.year} · {stage.stage}
-                            </span>
-                            <span
-                              className={`text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-sm ${
-                                stage.status.includes('Current')
-                                  ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white'
-                                  : 'bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-slate-400'
-                              }`}
-                            >
-                              {stage.status}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-slate-600 dark:text-slate-400 leading-relaxed mb-2 font-light">
-                            {stage.focus}
-                          </p>
-                          <div className="flex flex-wrap gap-1">
-                            {stage.keyModules.map((mod) => (
-                              <span
-                                key={mod}
-                                className="text-[9px] font-mono px-1.5 py-0.5 rounded-xs bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-blue-800/40"
-                              >
-                                {mod}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Relevant Coursework Section */}
-                {item.coursework && item.coursework.length > 0 && (
-                  <div className="mt-5 pt-5 border-t border-slate-200 dark:border-blue-900/30">
-                    <div className="flex items-center space-x-2 text-[10px] font-mono uppercase tracking-widest text-blue-600 dark:text-sky-300 font-bold mb-3">
-                      <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                      <span>Relevant Coursework:</span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-                      {item.coursework.map((course) => (
-                        <div
-                          key={course}
-                          className="flex items-center space-x-2 p-2.5 rounded-xl bg-white/45 dark:bg-[#030712]/60 border border-slate-200 dark:border-blue-900/30 text-xs font-medium text-slate-800 dark:text-slate-200 backdrop-blur-md"
-                        >
-                          <CheckCircle className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                          <span className="truncate">{course}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+            <p className="text-sm text-slate-500 dark:text-slate-400">{entry.location}</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
   );
 };
+
+export const EducationTimeline: React.FC = () => (
+  <section id="education" aria-label="Academic Journey and Education" className="border-t border-slate-200 py-20 text-slate-800 dark:border-slate-800 dark:text-slate-100 lg:py-28">
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <header className="mb-12 text-left">
+        <div className="flex items-center gap-3 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-blue-600 dark:text-sky-400">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
+            <GraduationCap className="h-3.5 w-3.5" />
+          </div>
+          <span>05 / EDUCATION</span>
+        </div>
+        <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+          Academic Journey
+        </h2>
+      </header>
+
+      <div className="space-y-8 sm:space-y-10">
+        {educationEntries.map((entry) => (
+          <EducationBlock key={`${entry.period}-${entry.degree}`} entry={entry} />
+        ))}
+      </div>
+    </div>
+  </section>
+);

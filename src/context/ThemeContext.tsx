@@ -16,15 +16,15 @@ const STORAGE_KEY = 'portfolio_theme';
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window === 'undefined') return 'dark';
+    if (typeof window === 'undefined') return 'light';
     const saved = localStorage.getItem(STORAGE_KEY) as Theme | null;
     if (saved === 'light' || saved === 'dark' || saved === 'system') {
       return saved;
     }
-    return 'dark'; // Default to Elegant Dark
+    return 'light';
   });
 
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>('dark');
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>('light');
 
   // Compute resolved theme and sync with DOM
   useEffect(() => {
@@ -61,7 +61,7 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         metaTheme.setAttribute('name', 'theme-color');
         document.head.appendChild(metaTheme);
       }
-      metaTheme.setAttribute('content', active === 'dark' ? '#030712' : '#f8fafc');
+      metaTheme.setAttribute('content', active === 'dark' ? '#0B1114' : '#F5F7F6');
     };
 
     applyTheme();

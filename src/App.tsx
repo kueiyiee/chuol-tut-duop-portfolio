@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
-import { ParticlesProvider } from '@tsparticles/react';
-import { loadSlim } from '@tsparticles/slim';
-import { ParticleBackground } from './components/ParticleBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -17,6 +14,8 @@ import { CVModal } from './components/CVModal';
 import { FadeInSection } from './components/FadeInSection';
 import { ScrollProgress } from './components/ScrollProgress';
 
+const ParticleSystem = lazy(() => import('./components/ParticleSystem').then(({ ParticleSystem }) => ({ default: ParticleSystem })));
+
 function PortfolioApp() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
 
@@ -29,18 +28,19 @@ function PortfolioApp() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f8fafc] dark:bg-[#030712] text-slate-900 dark:text-slate-100 selection:bg-blue-600 selection:text-white relative overflow-x-hidden font-sans transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-transparent text-slate-900 dark:text-slate-100 selection:bg-[#155E75] selection:text-white relative overflow-x-hidden font-sans transition-colors duration-300">
       {/* Subtle, Fixed-Position Glassmorphic Scroll Progress HUD */}
       <ScrollProgress />
 
       {/* Dynamic tsParticles Background */}
-      <ParticleBackground />
+      <Suspense fallback={null}>
+        <ParticleSystem />
+      </Suspense>
 
-      {/* Radiant ambient background glass-refraction light orbs - AletCloud Cyber Blue Aesthetic */}
-      <div className="fixed top-[-100px] right-[-80px] w-[580px] h-[580px] bg-gradient-to-br from-blue-500/20 via-cyan-500/15 to-transparent dark:from-blue-600/25 dark:via-cyan-500/20 dark:to-transparent rounded-full blur-[130px] pointer-events-none animate-float-slow" aria-hidden="true" />
-      <div className="fixed top-[30%] left-[-120px] w-[520px] h-[520px] bg-gradient-to-tr from-indigo-500/15 via-blue-600/10 to-transparent dark:from-sky-500/15 dark:via-indigo-950/50 dark:to-transparent rounded-full blur-[140px] pointer-events-none animate-float-alt" aria-hidden="true" />
-      <div className="fixed bottom-[10%] right-[-100px] w-[600px] h-[600px] bg-gradient-to-tl from-blue-600/20 via-sky-700/10 to-transparent dark:from-blue-700/20 dark:via-cyan-900/25 dark:to-transparent rounded-full blur-[150px] pointer-events-none animate-float-slow" aria-hidden="true" />
-      <div className="fixed top-[65%] left-[25%] w-[420px] h-[420px] bg-gradient-to-r from-blue-400/10 to-cyan-400/10 dark:from-blue-500/15 dark:to-cyan-400/10 rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+      {/* Soft ambient lighting for a more polished editorial feel */}
+      <div className="fixed inset-x-0 top-0 h-80 bg-gradient-to-b from-[#155E75]/8 via-[#28745A]/5 to-transparent dark:from-[#55B7C8]/10 dark:via-[#6EA8FE]/5 dark:to-transparent pointer-events-none" aria-hidden="true" />
+      <div className="fixed top-[-120px] right-[-100px] w-[440px] h-[440px] bg-gradient-to-br from-[#1D4ED8]/10 via-[#28745A]/6 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+      <div className="fixed bottom-[-80px] left-[-60px] w-[420px] h-[420px] bg-gradient-to-tr from-[#155E75]/8 via-[#28745A]/5 to-transparent rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
 
       {/* Top Sticky Navigation */}
       <Navbar onOpenCV={() => setCvModalOpen(true)} />
@@ -62,19 +62,19 @@ function PortfolioApp() {
           <FocusAreas />
         </FadeInSection>
 
-        {/* Education Timeline */}
-        <FadeInSection>
-          <EducationTimeline />
-        </FadeInSection>
-
-        {/* 4 Core Projects & Environmental System Suites */}
+        {/* Selected Projects */}
         <FadeInSection>
           <Projects />
         </FadeInSection>
 
-        {/* Field & Environmental Perspective Gallery */}
+        {/* Field Journal */}
         <FadeInSection>
           <FieldExperience />
+        </FadeInSection>
+
+        {/* Education Timeline */}
+        <FadeInSection>
+          <EducationTimeline />
         </FadeInSection>
 
         {/* Open to Opportunities & Target Organizations */}
@@ -102,9 +102,7 @@ function PortfolioApp() {
 export default function App() {
   return (
     <ThemeProvider>
-      <ParticlesProvider init={async (engine) => { await loadSlim(engine); }}>
-        <PortfolioApp />
-      </ParticlesProvider>
+      <PortfolioApp />
     </ThemeProvider>
   );
 }

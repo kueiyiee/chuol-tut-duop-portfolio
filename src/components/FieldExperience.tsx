@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Compass, MapPin, Eye, Filter, Maximize2, X, FileText } from 'lucide-react';
+import { Compass, Droplets, Leaf, MapPin, NotebookPen, X } from 'lucide-react';
 import { fieldObservations } from '../data/portfolioData';
 import { FieldObservation } from '../types';
 
@@ -7,7 +7,13 @@ export const FieldExperience: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [inspectedObservation, setInspectedObservation] = useState<FieldObservation | null>(null);
 
-  const categories = ['All', 'Field Ecology', 'Hydrology', 'Soil Conservation', 'Wildlife Ecology'];
+  const categories = [
+    { label: 'All', icon: Compass },
+    { label: 'Field Ecology', icon: Leaf },
+    { label: 'Hydrology', icon: Droplets },
+    { label: 'Soil Conservation', icon: MapPin },
+    { label: 'Wildlife Ecology', icon: Compass },
+  ];
 
   const filteredObservations = activeCategory === 'All'
     ? fieldObservations
@@ -16,204 +22,234 @@ export const FieldExperience: React.FC = () => {
   return (
     <section
       id="fieldwork"
-      aria-label="Field & Environmental Perspective"
-      className="py-20 lg:py-28 bg-transparent text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-blue-900/30 transition-colors duration-300 relative"
+      aria-label="Fieldwork"
+      className="border-t border-slate-200 py-16 text-slate-800 transition-colors duration-300 dark:border-slate-800 dark:text-slate-100 lg:py-20"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-slate-200 dark:border-blue-900/30 text-left">
-          <div className="space-y-3">
-            <div className="text-[10px] font-mono tracking-[0.3em] uppercase text-blue-600 dark:text-sky-400 font-bold">
-              05 / FIELDWORK & IN-SITU OBSERVATION
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-8 text-left">
+          <div className="flex items-center gap-3 text-[10px] font-mono font-bold uppercase tracking-[0.3em] text-blue-600 dark:text-sky-400">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
+              <Compass className="h-3.5 w-3.5" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Field & Environmental Perspective
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl font-light italic">
-              &ldquo;Learning from ecosystems through observation, assessment, and practical experience.&rdquo;
-            </p>
+            <span>04 / FIELDWORK</span>
           </div>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Field Journal
+          </h2>
+        </header>
 
-          {/* Category Filter Pills */}
-          <div className="mt-6 md:mt-0 flex flex-wrap gap-1.5">
-            {categories.map((cat) => (
+        <div className="mb-10 border-b border-slate-200 pb-4 dark:border-slate-700/80">
+          <div className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {categories.map(({ label, icon: Icon }) => (
               <button
-                key={cat}
+                key={label}
                 type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3 py-1.5 rounded-full text-xs font-mono transition-all cursor-pointer ${
-                  activeCategory === cat
-                    ? 'bg-blue-600 text-white dark:bg-blue-600 dark:text-white shadow-xs font-bold'
-                    : 'bg-blue-50/80 dark:bg-black/30 border border-slate-200 dark:border-blue-900/40 text-slate-600 dark:text-slate-400 hover:border-blue-500 hover:text-blue-600 dark:hover:text-white'
+                onClick={() => setActiveCategory(label)}
+                className={`inline-flex items-center gap-1.5 whitespace-nowrap border-b border-transparent px-1 pb-2 text-[10px] font-mono uppercase tracking-[0.22em] transition-all duration-200 ${
+                  activeCategory === label
+                    ? 'border-blue-600 text-blue-700 dark:border-sky-400 dark:text-sky-300'
+                    : 'text-slate-500 hover:border-slate-300 hover:text-slate-800 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:text-slate-200'
                 }`}
               >
-                {cat}
+                <Icon className="h-3 w-3" />
+                <span>{label}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Gallery Masonry/Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          {filteredObservations.map((obs) => (
-            <div
-              key={obs.id}
-              className="group relative rounded-xl overflow-hidden border border-slate-200 dark:border-blue-900/40 bg-white/80 dark:bg-[#060b18]/60 shadow-sm hover:shadow-xl hover:border-blue-500 transition-all duration-300 flex flex-col"
-            >
-              {/* Image Frame */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-[#030712]">
-                <img
-                  src={obs.image}
-                  alt={obs.imageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+        <div className="space-y-10">
+          {filteredObservations.map((observation, index) => {
+            const isImageFirst = index % 2 === 0;
 
-                {/* Overlaid Coordinate Tag */}
-                <div className="absolute top-3 left-3 flex items-center space-x-1.5 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-xs border border-blue-900/50 text-[10px] font-mono text-sky-300">
-                  <Compass className="w-3 h-3 text-sky-400" />
-                  <span>{obs.coordinates}</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setInspectedObservation(obs)}
-                  className="absolute top-3 right-3 p-2 rounded-full bg-black/80 text-white hover:bg-blue-600 hover:text-white transition-colors border border-blue-800/40 cursor-pointer"
-                  aria-label={`Inspect ${obs.title}`}
+            return (
+              <article
+                key={observation.id}
+                className="border-t border-slate-200 pt-7 first:border-t-0 first:pt-0 dark:border-slate-800"
+              >
+                <div
+                  className={`grid items-center gap-6 md:gap-10 ${
+                    isImageFirst ? 'md:grid-cols-[1.15fr_0.85fr]' : 'md:grid-cols-[0.85fr_1.15fr]'
+                  }`}
                 >
-                  <Maximize2 className="w-3.5 h-3.5" />
-                </button>
+                  <div className={`${isImageFirst ? 'order-1' : 'order-2 md:order-1'}`}>
+                    <div className="mb-3 text-[10px] font-mono uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
 
-                {/* Category & Ecosystem Badge */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
-                  <span className="px-2.5 py-0.5 rounded-full font-mono bg-blue-950/80 border border-blue-700/50 text-sky-300 text-[10px] font-bold">
-                    {obs.category}
-                  </span>
-                  <span className="font-mono text-[11px] text-sky-200 truncate">
-                    {obs.ecosystem}
-                  </span>
+                    <div className="mb-3 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                      <Compass className="h-3 w-3" />
+                      <span>{observation.category}</span>
+                    </div>
+
+                    <div className="mb-4 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                      {observation.ecosystem}
+                    </div>
+
+                    <h3 className="max-w-md text-2xl font-semibold tracking-[-0.04em] text-slate-900 dark:text-white sm:text-3xl">
+                      {observation.title}
+                    </h3>
+
+                    <div className="mt-7 space-y-6 border-t border-slate-200 pt-5 dark:border-slate-800">
+                      <div className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
+                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-slate-500 dark:text-slate-400" />
+                        <div>
+                          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                            <MapPin className="h-3 w-3" />
+                            <span>Location</span>
+                          </div>
+                          <div className="mt-1 text-sm tracking-[0.02em] text-slate-700 dark:text-slate-200">
+                            {observation.coordinates}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                          <Compass className="h-3 w-3" />
+                          <span>Activity</span>
+                        </div>
+                        <p className="mt-2 text-base font-medium text-slate-800 dark:text-slate-100">
+                          {observation.activity}
+                        </p>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                          <NotebookPen className="h-3 w-3" />
+                          <span>Method</span>
+                        </div>
+                        <p className="mt-2 max-w-md text-sm leading-6 text-slate-600 dark:text-slate-300">
+                          {observation.methodology}
+                        </p>
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setInspectedObservation(observation)}
+                      className="mt-7 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-700 transition-colors hover:text-blue-700 dark:text-slate-300 dark:hover:text-sky-300"
+                    >
+                      View Field Note
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </div>
+
+                  <div className={`${isImageFirst ? 'order-2' : 'order-1 md:order-2'}`}>
+                    <div className="relative overflow-hidden border border-slate-200 bg-slate-100 shadow-[0_18px_40px_rgba(15,23,42,0.04)] dark:border-slate-700 dark:bg-slate-900/80">
+                      <img
+                        src={observation.image}
+                        alt={observation.imageAlt}
+                        className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent" />
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between gap-4 border-t border-slate-200 pt-3 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:border-slate-800 dark:text-slate-400">
+                      <span className="flex items-center gap-2">
+                        <Compass className="h-3 w-3" />
+                        {observation.coordinates}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      {inspectedObservation && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-[2px]"
+          onClick={() => setInspectedObservation(null)}
+        >
+          <div
+            className="w-full max-w-2xl overflow-hidden border border-slate-200 bg-white text-left text-slate-900 shadow-2xl dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="relative">
+              <img
+                src={inspectedObservation.image}
+                alt={inspectedObservation.imageAlt}
+                className="aspect-[16/9] w-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <button
+                type="button"
+                onClick={() => setInspectedObservation(null)}
+                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center border border-white/20 bg-slate-950/70 text-white transition-colors hover:bg-slate-900"
+                aria-label="Close field note"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="space-y-5 p-6 sm:p-7">
+              <div className="flex flex-wrap items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                <span>{inspectedObservation.category}</span>
+                <span className="text-slate-300 dark:text-slate-600">•</span>
+                <span>{inspectedObservation.ecosystem}</span>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="mt-1 text-slate-500 dark:text-slate-400">
+                  <Compass className="h-4 w-4" />
+                </div>
+                <div className="text-sm tracking-[0.05em] text-slate-600 dark:text-slate-300">
+                  {inspectedObservation.coordinates}
                 </div>
               </div>
 
-              {/* Text Information Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-3">
+              <h3 className="text-2xl font-semibold tracking-[-0.04em] text-slate-900 dark:text-white">
+                {inspectedObservation.title}
+              </h3>
+
+              <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">
-                    {obs.title}
-                  </h3>
-                  <div className="text-xs font-semibold text-blue-600 dark:text-sky-400 mb-2 font-mono">
-                    Activity: {obs.activity}
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    <Compass className="h-3 w-3" />
+                    <span>Activity</span>
                   </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                    {obs.description}
+                  <p className="mt-2 text-base font-medium text-slate-800 dark:text-slate-100">
+                    {inspectedObservation.activity}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-200 dark:border-blue-900/30 text-xs flex items-center justify-between">
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 italic">
-                    Method: {obs.methodology}
+                <div>
+                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                    <NotebookPen className="h-3 w-3" />
+                    <span>Method</span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => setInspectedObservation(obs)}
-                    className="font-mono text-[11px] text-blue-600 dark:text-sky-400 font-semibold hover:text-blue-800 dark:hover:text-white shrink-0 ml-2 cursor-pointer"
-                  >
-                    View Field Note →
-                  </button>
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {inspectedObservation.methodology}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Fieldwork Verification Note */}
-        <div className="mt-12 p-5 rounded-xl border border-dashed border-slate-200 dark:border-blue-800/40 bg-blue-50/60 dark:bg-black/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-600 dark:text-slate-400 text-left">
-          <div className="flex items-center space-x-2">
-            <Compass className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0" />
-            <span>
-              <strong className="text-slate-900 dark:text-white">Field Observation Methodology:</strong> All fieldwork reflects academic coursework exercises in Somali Region and Gambella, focusing on baseline quadrat data, soil profiles, and watershed parameters.
-            </span>
-          </div>
-          <a
-            href="#contact"
-            className="text-blue-600 dark:text-sky-400 font-semibold hover:underline shrink-0 font-mono text-[11px]"
-          >
-            Inquire About Field Protocols →
-          </a>
-        </div>
+              <div>
+                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                  Description
+                </div>
+                <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                  {inspectedObservation.description}
+                </p>
+              </div>
 
-        {/* Inspection Modal */}
-        {inspectedObservation && (
-          <div
-            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4"
-            onClick={() => setInspectedObservation(null)}
-          >
-            <div
-              className="bg-white dark:bg-[#060b18] border border-slate-200 dark:border-blue-900/60 rounded-xl max-w-2xl w-full overflow-hidden shadow-2xl text-left text-slate-900 dark:text-white"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative aspect-[16/9] w-full bg-[#030712]">
-                <img
-                  src={inspectedObservation.image}
-                  alt={inspectedObservation.imageAlt}
-                  className="w-full h-full object-cover opacity-95"
-                  referrerPolicy="no-referrer"
-                />
+              <div className="flex justify-end pt-2">
                 <button
                   type="button"
                   onClick={() => setInspectedObservation(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-black/70 text-white hover:bg-black border border-blue-800/40 cursor-pointer"
-                  aria-label="Close modal"
+                  className="border border-slate-200 bg-slate-900 px-4 py-2 text-[10px] font-mono uppercase tracking-[0.2em] text-white transition-colors hover:bg-slate-700 dark:border-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
                 >
-                  <X className="w-4 h-4" />
+                  Close
                 </button>
-                <div className="absolute bottom-3 left-4 text-sky-300 text-xs font-mono">
-                  Coordinates: {inspectedObservation.coordinates}
-                </div>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <div className="flex items-center space-x-2">
-                  <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-blue-100 dark:bg-blue-950/60 border border-blue-600/30 dark:border-blue-700/50 text-blue-700 dark:text-sky-300">
-                    {inspectedObservation.category}
-                  </span>
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                    {inspectedObservation.ecosystem}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
-                  {inspectedObservation.title}
-                </h3>
-
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                  {inspectedObservation.description}
-                </p>
-
-                <div className="p-4 rounded-xl bg-blue-50/50 dark:bg-black/30 border border-slate-200 dark:border-blue-900/40 text-xs space-y-1">
-                  <div className="font-mono font-bold text-blue-600 dark:text-sky-400 uppercase tracking-widest text-[10px]">
-                    Sampling & Field Protocol:
-                  </div>
-                  <div className="text-slate-700 dark:text-slate-300">
-                    {inspectedObservation.methodology}
-                  </div>
-                </div>
-
-                <div className="pt-2 flex justify-end">
-                  <button
-                    type="button"
-                    onClick={() => setInspectedObservation(null)}
-                    className="px-4 py-2 rounded-sm bg-blue-600 text-white text-xs font-semibold uppercase tracking-wider hover:bg-blue-500 transition-colors cursor-pointer"
-                  >
-                    Close Observation
-                  </button>
-                </div>
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import { PersonalInfo, FocusArea, EducationItem, SkillCategory, ProjectItem, FieldObservation, TargetOrganization } from '../types';
+import profilePic from '../assets/images/profile.jpg';
 import watershedGisImg from '../assets/images/watershed_gis_system_1788476787030.jpg';
 import wasteAuditImg from '../assets/images/waste_audit_dashboard_1788476805854.jpg';
 import fieldSurveyImg from '../assets/images/field_survey_app_1788476820011.jpg';
@@ -9,17 +10,18 @@ export const personalInfo: PersonalInfo = {
   field: "Natural Resources and Management",
   university: "Kebri Dahar University",
   country: "Ethiopia",
-  academicLevel: "Senior B.Sc. Candidate (Class of 2027)",
+  academicLevel: "B.Sc. Candidate (Class of 2027)",
   expectedGraduation: "July 2027",
-  location: "Addis Ababa, Ethiopia",
+  location: "Kebri Dahar, Somali Region, Ethiopia",
   phone: "+251 917491593",
   email: "nyuonjamestutduop@gmail.com",
   linkedin: "https://www.linkedin.com/in/chuol-tut-duop",
+  facebook: "https://www.facebook.com/share/1EebBgYR8s/",
   tagline: "Exploring sustainable solutions for healthier ecosystems, resilient communities, and responsible natural resource management.",
   bioSummary: "Natural Resources and Management scholar at Kebri Dahar University with advanced academic preparation in environmental conservation, watershed dynamics, biodiversity preservation, and sustainable community stewardship. Dedicated to applying scientific field methods, environmental impact assessment fundamentals, and community-centered conservation principles across diverse ecological landscapes.",
   professionalSummary: "Detail-oriented third-year Natural Resources and Management student seeking an internship to apply academic knowledge, gain practical field experience, and support natural resource conservation and sustainable management. Skilled in environmental management, teamwork, communication, problem-solving, and basic data organization.",
   careerObjective: "To obtain an internship in Natural Resources and Management where I can gain practical field experience, strengthen my professional skills, and contribute to environmental conservation, sustainable resource management, and community development.",
-  profileImage: "https://i.postimg.cc/m26zS2fL/5823561112182526026.jpg",
+  profileImage: profilePic,
   cvUrl: "https://drive.google.com/file/d/your-cv-direct-link/view?usp=sharing",
   reference: {
     name: "Dagnachew Bezaredie",
@@ -181,7 +183,7 @@ export const educationHistory: EducationItem[] = [
   },
   {
     id: "edu-sec",
-    degree: "Ethiopian Secondary School Leaving Certificate",
+    degree: "Ethiopian Secondary School Leaving Certificate Examination",
     institution: "Gambella Secondary and Preparatory School",
     location: "Gambella, Ethiopia",
     period: "2019 – 2021",
@@ -190,7 +192,7 @@ export const educationHistory: EducationItem[] = [
   },
   {
     id: "edu-prim",
-    degree: "Primary School Leaving Certificate",
+    degree: "Primary School Leaving Certificate Examination",
     institution: "RRS Junior Primary School",
     location: "Pinyudo, Gambella, Ethiopia",
     period: "2011 – 2018",

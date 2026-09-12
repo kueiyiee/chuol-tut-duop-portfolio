@@ -90,7 +90,7 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
 Natural Resources and Management
 Kebri Dahar University, Ethiopia
 
-📍 Addis Ababa, Ethiopia
+📍 Kebri Dahar, Somali Region, Ethiopia
 📞 +251 917491593
 📧 nyuonjamestutduop@gmail.com
 🔗 LinkedIn: linkedin.com/in/chuol-tut-duop
@@ -109,10 +109,10 @@ Expected Graduation: July 2027
 
 Relevant Coursework: Natural Resource Management, Environmental Conservation, Biodiversity Conservation, Watershed Management, Soil and Water Conservation, Climate Change, Forest Resource Management, Wildlife Management, Environmental Impact Assessment, and Sustainable Development.
 
-Secondary School Leaving Certificate, 2019–2021
+Secondary School Leaving Certificate Examination, 2019–2021
 Gambella Secondary and Preparatory School, Gambella Region, Ethiopia
 
-Primary School Leaving Certificate, 2011–2018
+Primary School Leaving Certificate Examination, 2011–2018
 RRS Junior Primary School, Pinyudo, Gambella, Ethiopia
 
 ==================================================
@@ -318,7 +318,7 @@ Telegram: @Dagnachew Bezaredie`;
                   <div className="space-y-1 text-xs font-mono text-slate-600 dark:text-slate-400">
                     <div className="flex items-center space-x-1.5">
                       <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400 shrink-0" />
-                      <span>Addis Ababa, Ethiopia</span>
+                      <span>Kebri Dahar, Somali Region, Ethiopia</span>
                     </div>
                     <div className="flex items-center space-x-1.5">
                       <Phone className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400 shrink-0" />

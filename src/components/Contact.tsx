@@ -3,7 +3,8 @@ import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
-  Linkedin, 
+  Linkedin,
+  Facebook,
   Send, 
   CheckCircle2, 
   FileText, 
@@ -20,7 +21,8 @@ import {
   GraduationCap,
   Clock,
   ShieldCheck,
-  UserCheck
+  UserCheck,
+  UserRound
 } from 'lucide-react';
 import { personalInfo, academicReference } from '../data/portfolioData';
 
@@ -359,279 +361,253 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
     <section
       id="contact"
       aria-label="Contact Nyuon James Tut Duop"
-      className="py-20 lg:py-28 bg-transparent text-slate-800 dark:text-slate-100 border-t border-slate-200 dark:border-blue-900/30 transition-colors duration-300 relative"
+      className="border-t border-slate-200 py-16 text-slate-800 transition-colors duration-300 dark:border-slate-800 dark:text-slate-100 lg:py-20"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="mb-14 pb-6 border-b border-slate-200 dark:border-blue-900/30 text-left">
-          <div className="text-[10px] font-mono tracking-[0.3em] uppercase text-blue-600 dark:text-sky-400 font-bold mb-2 flex items-center space-x-2">
-            <span>07 / DIRECT INQUIRIES &amp; COLLABORATIONS</span>
-            <span className="text-slate-400">·</span>
-            <span className="text-slate-500 dark:text-slate-400 font-normal tracking-wider">
-              {EMAILJS_CONFIG.BRAND_NAME}
-            </span>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 border-b border-slate-200 pb-5 text-left dark:border-slate-700/80">
+          <div className="mb-2 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-blue-600 dark:text-sky-400">
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-blue-200 bg-blue-50 text-blue-700 dark:border-sky-500/30 dark:bg-sky-500/10 dark:text-sky-300">
+              <MessageSquare className="h-3.5 w-3.5" />
+            </div>
+            <span>07 / CONTACT · NYUON | DIGITAL PORTFOLIO</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Let&apos;s Work Toward a More Sustainable Future
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            Start a Conversation
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mt-3 font-light">
-            All direct communication channels, verified coordinates, academic reference information, and immediate messaging are consolidated here.
+          <p className="mt-2 max-w-xl text-sm text-slate-600 dark:text-slate-400">
+            Open to research, fieldwork, and professional opportunities.
           </p>
         </div>
 
-        {/* Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 text-left">
-          {/* Left Column: Direct Coordinates & Strategic Communication Headquarters */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-7 sm:p-8 rounded-2xl glass-card space-y-6">
-              {/* Header Status */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-blue-900/40">
-                <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-sky-400 animate-pulse" />
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-blue-700 dark:text-sky-300 font-bold">
-                    Official Contact Hub
-                  </span>
-                </div>
-                <div className="flex items-center space-x-1.5 text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                  <Clock className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                  <span>Response: &lt; 24h</span>
-                </div>
-              </div>
-
-              {/* Scholar Identity Brief */}
-              <div className="space-y-2">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight font-comic">
-                  Chuol Tut Duop
-                </h3>
-                <div className="flex items-center space-x-2 text-xs text-slate-600 dark:text-slate-400">
-                  <GraduationCap className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0" />
-                  <span>Senior B.Sc. Candidate (Natural Resources &amp; Management)</span>
-                </div>
-                <div className="flex items-center space-x-2 text-xs text-slate-600 dark:text-slate-400">
-                  <MapPin className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0" />
-                  <span>Addis Ababa &amp; Kebri Dahar, Ethiopia</span>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-5 lg:pr-8">
+            <div className="space-y-6 lg:border-r lg:border-slate-200 lg:pr-8 dark:lg:border-slate-800">
+              <div className="flex items-center gap-4 pb-5">
+                <img
+                  src={personalInfo.profileImage}
+                  alt="Chuol Tut Duop"
+                  className="h-16 w-16 rounded-full border border-slate-200 object-cover bg-slate-100 dark:border-slate-700 dark:bg-slate-800"
+                />
+                <div>
+                  <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                    CHUOL TUT DUOP
+                  </div>
+                  <div className="mt-1 text-sm font-medium text-slate-800 dark:text-slate-200">
+                    B.Sc. Candidate
+                  </div>
+                  <div className="text-sm text-slate-600 dark:text-slate-300">
+                    Natural Resources &amp; Management
+                  </div>
                 </div>
               </div>
 
-              {/* Verified Direct Channels */}
+              <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                <MapPin className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
+                <span>Kebri Dahar, Somali Region, Ethiopia</span>
+              </div>
+
               <div className="space-y-3 pt-2">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-blue-600 dark:text-sky-400 font-bold">
-                  Direct Inquiries &amp; Channels
+                <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-blue-600 dark:text-sky-400">
+                  Direct Channels
                 </div>
 
-                {/* Email Box with One-Click Copy */}
-                <div className="p-3.5 rounded-xl bg-white/70 dark:bg-black/40 border border-slate-200 dark:border-blue-500/20 hover:border-blue-500 backdrop-blur-md transition-colors">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono uppercase text-blue-600 dark:text-sky-400 font-semibold flex items-center space-x-1.5">
-                      <Mail className="w-3.5 h-3.5" />
-                      <span>Official Inbox</span>
-                    </span>
+                <ul className="space-y-2">
+                  <li>
+                    <a
+                      href={`mailto:${personalInfo.email}`}
+                      className="group flex items-center justify-between gap-3 border-b border-slate-200 py-2 text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
+                    >
+                      <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                        <Mail className="h-3.5 w-3.5" />
+                        Email
+                      </span>
+                      <span className="flex items-center gap-2 text-right text-slate-800 dark:text-slate-100">
+                        <span className="truncate">{personalInfo.email}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+                      className="group flex items-center justify-between gap-3 border-b border-slate-200 py-2 text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
+                    >
+                      <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                        <Phone className="h-3.5 w-3.5" />
+                        Phone
+                      </span>
+                      <span className="flex items-center gap-2 text-slate-800 dark:text-slate-100">
+                        <span>{personalInfo.phone}</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href={personalInfo.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between gap-3 border-b border-slate-200 py-2 text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
+                    >
+                      <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                        <Linkedin className="h-3.5 w-3.5" />
+                        LinkedIn
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <span>Connect on LinkedIn</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href={personalInfo.facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between gap-3 border-b border-slate-200 py-2 text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
+                    >
+                      <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                        <Facebook className="h-3.5 w-3.5" />
+                        Facebook
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <span>Connect on Facebook</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
+                    </a>
+                  </li>
+
+                  <li>
                     <button
                       type="button"
-                      onClick={handleCopyEmail}
-                      className="text-[10px] font-mono inline-flex items-center space-x-1 text-blue-600 dark:text-sky-300 hover:underline cursor-pointer"
+                      onClick={onOpenCV}
+                      className="group flex w-full items-center justify-between gap-3 border-b border-slate-200 py-2 text-left text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
                     >
-                      {emailCopied ? (
-                        <>
-                          <Check className="w-3 h-3 text-sky-400" />
-                          <span>Copied!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3 h-3" />
-                          <span>Copy</span>
-                        </>
-                      )}
+                      <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+                        <FileText className="h-3.5 w-3.5" />
+                        CV
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <span>View CV</span>
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
                     </button>
-                  </div>
-                  <a
-                    href={`mailto:${EMAILJS_CONFIG.DESTINATION_EMAIL}`}
-                    className="text-xs sm:text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-sky-300 transition-colors break-all block"
-                  >
-                    {EMAILJS_CONFIG.DESTINATION_EMAIL}
-                  </a>
-                </div>
-
-                {/* Phone Channel */}
-                <a
-                  href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/70 hover:bg-white dark:bg-black/40 dark:hover:bg-blue-950/30 border border-slate-200 dark:border-blue-500/20 hover:border-blue-500 text-slate-900 dark:text-white text-xs font-medium backdrop-blur-md transition-all"
-                >
-                  <div className="flex items-center space-x-2.5">
-                    <Phone className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-                    <span>{personalInfo.phone}</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                </a>
-
-                {/* LinkedIn Channel */}
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/70 hover:bg-white dark:bg-black/40 dark:hover:bg-blue-950/30 border border-slate-200 dark:border-blue-500/20 hover:border-blue-500 text-slate-900 dark:text-white text-xs font-medium backdrop-blur-md transition-all"
-                >
-                  <div className="flex items-center space-x-2.5">
-                    <Linkedin className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-                    <span>Connect on LinkedIn</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                </a>
-
-                {/* CV Action */}
-                <button
-                  type="button"
-                  onClick={onOpenCV}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-white/70 hover:bg-white dark:bg-black/40 dark:hover:bg-blue-950/30 border border-slate-200 dark:border-blue-500/20 hover:border-blue-500 text-slate-900 dark:text-white text-xs font-medium backdrop-blur-md transition-all w-full text-left cursor-pointer"
-                >
-                  <div className="flex items-center space-x-2.5">
-                    <FileText className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-                    <span>Review Academic CV (Online CV)</span>
-                  </div>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
-                </button>
+                  </li>
+                </ul>
               </div>
 
-              {/* Academic Reference Card (Consolidated) */}
-              <div className="p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/30 border border-blue-200/60 dark:border-blue-800/40 space-y-1.5 text-xs">
-                <div className="flex items-center space-x-1.5 text-[10px] font-mono text-blue-700 dark:text-sky-300 font-bold uppercase tracking-wider">
-                  <UserCheck className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
+              <div className="border-t border-slate-200 pt-5 dark:border-slate-800">
+                <div className="mb-3 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-slate-500 dark:text-slate-400">
+                  <GraduationCap className="h-3.5 w-3.5" />
                   <span>Academic Reference</span>
                 </div>
-                <div className="font-bold text-slate-900 dark:text-white text-sm">
-                  {academicReference.name}
+                <div className="space-y-1 text-sm text-slate-700 dark:text-slate-200">
+                  <div className="font-semibold text-slate-900 dark:text-white">{academicReference.name}</div>
+                  <div>{academicReference.title}</div>
+                  <div className="text-slate-600 dark:text-slate-300">{academicReference.institution}</div>
+                  <div className="pt-1 text-slate-600 dark:text-slate-300">
+                    Phone: {academicReference.phone}
+                  </div>
                 </div>
-                <div className="text-blue-700 dark:text-sky-300 font-medium">
-                  {academicReference.title}
-                </div>
-                <div className="text-slate-600 dark:text-slate-400 text-xs">
-                  {academicReference.institution} · Phone: {academicReference.phone}
-                </div>
-              </div>
-
-              {/* Verification & Privacy Commitment */}
-              <div className="pt-2 border-t border-slate-200 dark:border-blue-900/40 flex items-start space-x-2.5 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0 mt-0.5" />
-                <span>
-                  Inquiries transmitted through this dossier are routed directly to <strong className="font-mono text-slate-900 dark:text-white">Nyuonjamestutduop@gmail.com</strong>.
-                </span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive EmailJS Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="p-7 sm:p-10 rounded-2xl glass-card space-y-6">
-              {/* Form Title & Subtitle */}
+          <div className="lg:col-span-7 lg:pl-2">
+            <div className="space-y-6">
               <div>
-                <div className="flex items-center space-x-2 mb-2 text-[10px] font-mono text-blue-600 dark:text-sky-400 uppercase font-bold tracking-widest">
-                  <MessageSquare className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-                  <span>Send a Direct Message</span>
+                <div className="mb-2 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-blue-600 dark:text-sky-400">
+                  <MessageSquare className="h-3.5 w-3.5" />
+                  Send a Message
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                  Initiate a Conversation
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 font-light">
-                  Submit an inquiry regarding fellowships, research collaborations, or conservation programs. Messages are transmitted securely to <strong className="text-slate-900 dark:text-white font-medium">{EMAILJS_CONFIG.DESTINATION_EMAIL}</strong>.
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  Use the form for research, fieldwork, or professional inquiries.
                 </p>
               </div>
 
-              {/* Status Notification / Toast */}
               {notification && (
                 <div
                   id="contact-notification"
                   role={notification.type === 'error' ? 'alert' : 'status'}
                   aria-live="polite"
-                  className={`p-4 rounded-xl border flex items-start space-x-3 text-xs leading-relaxed transition-all duration-200 ${
+                  className={`flex items-start gap-3 rounded-lg border p-4 text-xs leading-relaxed ${
                     notification.type === 'success'
-                      ? 'bg-blue-500/15 border-blue-600/40 text-blue-950 dark:text-sky-200 backdrop-blur-md'
-                      : 'bg-red-500/15 border-red-600/40 text-red-950 dark:text-red-200 backdrop-blur-md'
+                      ? 'border-blue-200 bg-blue-50 text-blue-950 dark:border-blue-900/60 dark:bg-blue-950/20 dark:text-sky-200'
+                      : 'border-red-200 bg-red-50 text-red-950 dark:border-red-900/60 dark:bg-red-950/20 dark:text-red-100'
                   }`}
                 >
                   {notification.type === 'success' ? (
-                    <CheckCircle2 className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 text-blue-600 dark:text-sky-400" />
                   ) : (
-                    <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                    <AlertCircle className="mt-0.5 h-4 w-4 text-red-600 dark:text-red-400" />
                   )}
+
                   <div className="flex-1 space-y-2">
-                    <p className="font-semibold text-sm">
-                      {notification.title}
-                    </p>
-                    <p className="text-xs leading-relaxed">{notification.message}</p>
-                    
+                    <p className="text-sm font-semibold">{notification.title}</p>
+                    <p>{notification.message}</p>
+
                     {notification.details && (
-                      <p className="text-[11px] opacity-90 leading-relaxed font-light">
-                        {notification.details}
-                      </p>
+                      <p className="text-[11px] opacity-90">{notification.details}</p>
                     )}
 
                     {notification.type === 'error' && (
-                      <div className="pt-2.5 border-t border-red-400/30 dark:border-red-900/40 space-y-2">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <a
-                            href={getMailtoHref()}
-                            className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-red-700 hover:bg-red-800 text-white text-xs font-medium transition-colors shadow-sm focus-visible:outline-2 focus-visible:outline-red-500"
-                          >
-                            <Mail className="w-3.5 h-3.5" />
-                            <span>Open in Email App (Pre-Filled)</span>
-                            <ArrowUpRight className="w-3 h-3" />
-                          </a>
+                      <div className="flex flex-wrap items-center gap-2 pt-1">
+                        <a
+                          href={getMailtoHref()}
+                          className="inline-flex items-center gap-1.5 rounded-full bg-red-700 px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-white transition-colors hover:bg-red-800"
+                        >
+                          <Mail className="h-3 w-3" />
+                          Open in Email App
+                          <ArrowUpRight className="h-3 w-3" />
+                        </a>
 
-                          <button
-                            type="button"
-                            onClick={handleCopyMessage}
-                            className="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-white/70 dark:bg-black/40 border border-red-300 dark:border-red-800/60 hover:bg-red-50 dark:hover:bg-black/60 text-red-950 dark:text-red-200 text-xs font-medium backdrop-blur-xs transition-colors cursor-pointer"
-                          >
-                            {copied ? (
-                              <>
-                                <Check className="w-3.5 h-3.5 text-sky-400" />
-                                <span className="text-sky-300">Copied to Clipboard!</span>
-                              </>
-                            ) : (
-                              <>
-                                <Copy className="w-3.5 h-3.5" />
-                                <span>Copy Message Details</span>
-                              </>
-                            )}
-                          </button>
-
-                          {notification.isTemplateNotFound && (
-                            <a
-                              href="https://dashboard.emailjs.com/admin/templates"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center space-x-1 text-[11px] text-red-900 dark:text-red-300 hover:underline font-medium ml-auto"
-                            >
-                              <span>EmailJS Dashboard</span>
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
+                        <button
+                          type="button"
+                          onClick={handleCopyMessage}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-red-300 bg-white px-3 py-1.5 text-[10px] font-mono uppercase tracking-[0.16em] text-red-900 transition-colors hover:bg-red-50 dark:border-red-800 dark:bg-slate-900 dark:text-red-100 dark:hover:bg-slate-800"
+                        >
+                          {copied ? (
+                            <>
+                              <Check className="h-3 w-3 text-sky-500" />
+                              Copied
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="h-3 w-3" />
+                              Copy Message
+                            </>
                           )}
-                        </div>
+                        </button>
 
-                        <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                          Alternatively send directly to:{' '}
+                        {notification.isTemplateNotFound && (
                           <a
-                            href={`mailto:${EMAILJS_CONFIG.DESTINATION_EMAIL}`}
-                            className="font-mono font-semibold text-red-800 dark:text-red-300 underline hover:opacity-80"
+                            href="https://dashboard.emailjs.com/admin/templates"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.16em] text-red-900 underline dark:text-red-200"
                           >
-                            {EMAILJS_CONFIG.DESTINATION_EMAIL}
+                            EmailJS Dashboard
+                            <ExternalLink className="h-3 w-3" />
                           </a>
-                        </p>
+                        )}
                       </div>
                     )}
                   </div>
+
                   <button
                     type="button"
                     onClick={() => setNotification(null)}
-                    className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 p-1 rounded-full cursor-pointer"
+                    className="rounded-full p-1 text-slate-400 transition-colors hover:text-slate-600 dark:hover:text-slate-200"
                     aria-label="Dismiss notification"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
               )}
 
-              {/* Contact Form */}
               <form
                 ref={formRef}
                 id="emailjs-contact-form"
@@ -639,7 +615,6 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                 noValidate
                 className="space-y-4 text-left"
               >
-                {/* Honeypot Anti-Spam Hidden Field */}
                 <div
                   className="hidden"
                   aria-hidden="true"
@@ -657,21 +632,13 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                   />
                 </div>
 
-                {/* Submission Time variable generated for EmailJS template */}
-                <input
-                  type="hidden"
-                  name="time"
-                  value={getAddisAbabaTimestamp()}
-                />
+                <input type="hidden" name="time" value={getAddisAbabaTimestamp()} />
 
-                {/* Row 1: Full Name & Email Address */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
-                    <label
-                      htmlFor="contact-from-name"
-                      className="block text-[10px] font-mono uppercase text-slate-600 dark:text-slate-400 mb-1.5 font-semibold"
-                    >
-                      Full Name <span className="text-blue-600 dark:text-sky-400">*</span>
+                    <label htmlFor="contact-from-name" className="mb-1.5 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      <UserRound className="h-3.5 w-3.5" />
+                      <span>Full Name <span className="text-blue-600 dark:text-sky-400">*</span></span>
                     </label>
                     <input
                       id="contact-from-name"
@@ -684,25 +651,19 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                       value={formData.from_name}
                       onChange={handleInputChange}
                       placeholder="e.g. Dr. Jane Doe / Organization Name"
-                      className={`w-full px-4 py-2.5 rounded-xl border glass-input text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-all focus-visible:outline-2 focus-visible:outline-blue-500 ${
-                        errors.from_name
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-slate-200 dark:border-blue-900/40 focus:border-blue-500'
+                      className={`w-full border-b border-slate-300 bg-transparent px-0 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500 ${
+                        errors.from_name ? 'border-red-400' : ''
                       }`}
                     />
                     {errors.from_name && (
-                      <p id="name-error" className="text-[11px] text-red-600 dark:text-red-400 mt-1 font-medium">
-                        {errors.from_name}
-                      </p>
+                      <p id="name-error" className="mt-1 text-[11px] text-red-600 dark:text-red-400">{errors.from_name}</p>
                     )}
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="contact-from-email"
-                      className="block text-[10px] font-mono uppercase text-slate-600 dark:text-slate-400 mb-1.5 font-semibold"
-                    >
-                      Email Address <span className="text-blue-600 dark:text-sky-400">*</span>
+                    <label htmlFor="contact-from-email" className="mb-1.5 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      <Mail className="h-3.5 w-3.5" />
+                      <span>Email Address <span className="text-blue-600 dark:text-sky-400">*</span></span>
                     </label>
                     <input
                       id="contact-from-email"
@@ -715,53 +676,39 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                       value={formData.from_email}
                       onChange={handleInputChange}
                       placeholder="e.g. contact@organization.org"
-                      className={`w-full px-4 py-2.5 rounded-xl border glass-input text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-all focus-visible:outline-2 focus-visible:outline-blue-500 ${
-                        errors.from_email
-                          ? 'border-red-500 focus:border-red-500'
-                          : 'border-slate-200 dark:border-blue-900/40 focus:border-blue-500'
+                      className={`w-full border-b border-slate-300 bg-transparent px-0 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500 ${
+                        errors.from_email ? 'border-red-400' : ''
                       }`}
                     />
                     {errors.from_email && (
-                      <p id="email-error" className="text-[11px] text-red-600 dark:text-red-400 mt-1 font-medium">
-                        {errors.from_email}
-                      </p>
+                      <p id="email-error" className="mt-1 text-[11px] text-red-600 dark:text-red-400">{errors.from_email}</p>
                     )}
                   </div>
                 </div>
 
-                {/* Row 2: Phone Number (Optional) */}
                 <div>
-                  <label
-                    htmlFor="contact-phone"
-                    className="block text-[10px] font-mono uppercase text-slate-600 dark:text-slate-400 mb-1.5 font-semibold"
-                  >
-                    Phone Number <span className="text-[10px] text-slate-400 font-normal font-sans">(Optional)</span>
+                  <label htmlFor="contact-phone" className="mb-1.5 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                    <Phone className="h-3.5 w-3.5" />
+                    <span>Phone Number <span className="text-slate-400">(Optional)</span></span>
                   </label>
-                  <div className="relative">
-                    <input
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="e.g. +251 91 234 5678"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-blue-900/40 glass-input text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-all focus:border-blue-500 focus-visible:outline-2 focus-visible:outline-blue-500"
-                    />
-                  </div>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="e.g. +251 91 234 5678"
+                    className="w-full border-b border-slate-300 bg-transparent px-0 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500"
+                  />
                 </div>
 
-                {/* Row 3: Subject */}
                 <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <label
-                      htmlFor="contact-subject"
-                      className="block text-[10px] font-mono uppercase text-slate-600 dark:text-slate-400 font-semibold"
-                    >
-                      Subject <span className="text-blue-600 dark:text-sky-400">*</span>
+                  <div className="mb-1.5 flex items-center justify-between gap-2">
+                    <label htmlFor="contact-subject" className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                      <FileText className="h-3.5 w-3.5" />
+                      <span>Subject <span className="text-blue-600 dark:text-sky-400">*</span></span>
                     </label>
-                    <span className="text-[10px] text-slate-400 font-mono">
-                      or select topic below
-                    </span>
+                    <span className="text-[9px] text-slate-400 dark:text-slate-500">or select topic below</span>
                   </div>
 
                   <input
@@ -775,30 +722,25 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     placeholder="e.g. Internship Opportunity / Research Fellowship"
-                    className={`w-full px-4 py-2.5 rounded-xl border glass-input text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-all focus-visible:outline-2 focus-visible:outline-blue-500 ${
-                      errors.subject
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-slate-200 dark:border-blue-900/40 focus:border-blue-500'
+                    className={`w-full border-b border-slate-300 bg-transparent px-0 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500 ${
+                      errors.subject ? 'border-red-400' : ''
                     }`}
                   />
 
                   {errors.subject && (
-                    <p id="subject-error" className="text-[11px] text-red-600 dark:text-red-400 mt-1 font-medium">
-                      {errors.subject}
-                    </p>
+                    <p id="subject-error" className="mt-1 text-[11px] text-red-600 dark:text-red-400">{errors.subject}</p>
                   )}
 
-                  {/* Suggested Topic Chips */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
+                  <div className="mt-3 flex flex-wrap gap-2">
                     {SUGGESTED_SUBJECTS.map((item) => (
                       <button
                         key={item}
                         type="button"
                         onClick={() => handleSelectSuggestedSubject(item)}
-                        className={`text-[10px] px-3 py-1 rounded-full border transition-all cursor-pointer backdrop-blur-md ${
+                        className={`rounded-full border px-3 py-1 text-[10px] font-mono uppercase tracking-[0.16em] transition-colors ${
                           formData.subject === item
-                            ? 'bg-blue-600 text-white border-blue-600 dark:bg-blue-600 dark:text-white dark:border-blue-500 font-semibold shadow-xs'
-                            : 'bg-white/60 hover:bg-white dark:bg-black/30 dark:hover:bg-blue-950/40 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-blue-900/40'
+                            ? 'border-blue-600 bg-blue-600 text-white dark:border-sky-400 dark:bg-sky-500 dark:text-slate-950'
+                            : 'border-slate-200 bg-white/50 text-slate-600 hover:border-slate-300 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-300 dark:hover:border-slate-500 dark:hover:text-white'
                         }`}
                       >
                         {item}
@@ -807,13 +749,10 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                   </div>
                 </div>
 
-                {/* Row 4: Message */}
                 <div>
-                  <label
-                    htmlFor="contact-message"
-                    className="block text-[10px] font-mono uppercase text-slate-600 dark:text-slate-400 mb-1.5 font-semibold"
-                  >
-                    Message <span className="text-blue-600 dark:text-sky-400">*</span>
+                  <label htmlFor="contact-message" className="mb-1.5 flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                    <MessageSquare className="h-3.5 w-3.5" />
+                    <span>Message <span className="text-blue-600 dark:text-sky-400">*</span></span>
                   </label>
                   <textarea
                     id="contact-message"
@@ -826,69 +765,52 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Please describe your organization, prospective program, or inquiry..."
-                    className={`w-full px-4 py-2.5 rounded-xl border glass-input text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm resize-y transition-all focus-visible:outline-2 focus-visible:outline-blue-500 ${
-                      errors.message
-                        ? 'border-red-500 focus:border-red-500'
-                        : 'border-slate-200 dark:border-blue-900/40 focus:border-blue-500'
+                    className={`w-full resize-y border-b border-slate-300 bg-transparent px-0 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500 ${
+                      errors.message ? 'border-red-400' : ''
                     }`}
                   />
                   {errors.message && (
-                    <p id="message-error" className="text-[11px] text-red-600 dark:text-red-400 mt-1 font-medium">
-                      {errors.message}
-                    </p>
+                    <p id="message-error" className="mt-1 text-[11px] text-red-600 dark:text-red-400">{errors.message}</p>
                   )}
                 </div>
 
-                {/* Submit Action Button */}
                 <div className="pt-2">
                   <button
                     type="submit"
                     id="contact-submit-btn"
                     disabled={status === 'sending'}
-                    className={`w-full py-3.5 px-6 rounded-full font-semibold text-xs uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center space-x-2 focus-visible:outline-2 focus-visible:outline-blue-500 cursor-pointer ${
+                    className={`flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-[10px] font-mono uppercase tracking-[0.2em] transition-all ${
                       status === 'sending'
-                        ? 'bg-blue-700 text-white cursor-wait opacity-90'
+                        ? 'cursor-wait bg-slate-800 text-white dark:bg-slate-100 dark:text-slate-900'
                         : status === 'success'
-                        ? 'bg-blue-600 hover:bg-blue-500 text-white cursor-default'
+                        ? 'bg-blue-600 text-white'
                         : status === 'error'
-                        ? 'bg-amber-600 hover:bg-amber-500 text-white'
-                        : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]'
+                        ? 'bg-amber-600 text-white hover:bg-amber-500'
+                        : 'bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white'
                     }`}
                   >
-                    {status === 'sending' && (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin text-sky-200" />
-                        <span>Sending Message...</span>
-                      </>
-                    )}
-                    {status === 'success' && (
-                      <>
-                        <CheckCircle2 className="w-4 h-4 text-white" />
-                        <span>Message Sent ✓</span>
-                      </>
-                    )}
-                    {status === 'error' && (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>Try Again</span>
-                      </>
-                    )}
-                    {status === 'idle' && (
-                      <>
-                        <Send className="w-4 h-4" />
-                        <span>Send Message</span>
-                      </>
-                    )}
+                    {status === 'sending' && <Loader2 className="h-4 w-4 animate-spin" />}
+                    {status === 'success' && <CheckCircle2 className="h-4 w-4" />}
+                    {status === 'error' && <Send className="h-4 w-4" />}
+                    {status === 'idle' && <Send className="h-4 w-4" />}
+                    <span>
+                      {status === 'sending' && 'Sending Message...'}
+                      {status === 'success' && 'Message Sent ✓'}
+                      {status === 'error' && 'Try Again'}
+                      {status === 'idle' && 'Send Message →'}
+                    </span>
                   </button>
                 </div>
 
-                {/* Footer Transmission Metadata */}
-                <div className="pt-2 flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                  <span className="flex items-center space-x-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                <div className="pt-2 text-[10px] font-mono uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                  <div className="mb-2 flex items-center gap-2">
+                    <ShieldCheck className="h-3.5 w-3.5 text-slate-500 dark:text-slate-400" />
                     <span>Protected by Anti-Spam &amp; Rate-Limiting</span>
-                  </span>
-                  <span>Timezone: Africa/Addis_Ababa</span>
+                  </div>
+                  <div className="flex items-center justify-between gap-2 border-t border-slate-200 pt-2 dark:border-slate-800">
+                    <span>Timezone:</span>
+                    <span className="text-slate-700 dark:text-slate-200">Africa/Addis_Ababa</span>
+                  </div>
                 </div>
               </form>
             </div>

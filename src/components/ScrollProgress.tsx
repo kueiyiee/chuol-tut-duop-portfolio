@@ -10,10 +10,10 @@ interface Section {
 const SECTIONS: Section[] = [
   { id: 'home', name: 'Introduction', shortName: 'Intro', number: '00' },
   { id: 'about', name: 'About Chuol', shortName: 'About', number: '01' },
-  { id: 'focus-areas', name: 'Focus & Skills', shortName: 'Focus', number: '02' },
-  { id: 'education', name: 'Academic Timeline', shortName: 'Timeline', number: '03' },
-  { id: 'projects', name: 'Projects & GIS Suites', shortName: 'Projects', number: '04' },
-  { id: 'fieldwork', name: 'Field Perspective', shortName: 'Fieldwork', number: '05' },
+  { id: 'focus-areas', name: 'Expertise', shortName: 'Expertise', number: '02' },
+  { id: 'projects', name: 'Selected Projects', shortName: 'Projects', number: '03' },
+  { id: 'fieldwork', name: 'Field Journal', shortName: 'Fieldwork', number: '04' },
+  { id: 'education', name: 'Academic Journey', shortName: 'Education', number: '05' },
   { id: 'opportunities', name: 'Open Opportunities', shortName: 'Opportunities', number: '06' },
   { id: 'contact', name: 'Contact & Inquiries', shortName: 'Contact', number: '07' },
 ];

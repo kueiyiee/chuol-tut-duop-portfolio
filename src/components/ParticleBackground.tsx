@@ -14,40 +14,28 @@ export const ParticleBackground: React.FC = () => {
         enable: false,
         zIndex: 0,
       },
-      fpsLimit: 60,
+      fpsLimit: 45,
       interactivity: {
         detectsOn: 'window',
         events: {
           onHover: {
-            enable: true,
-            mode: 'grab',
+            enable: false,
           },
           resize: {
             enable: true,
-          },
-        },
-        modes: {
-          grab: {
-            distance: 170,
-            links: {
-              opacity: isDark ? 0.8 : 0.6,
-              color: isDark ? '#38bdf8' : '#2563eb',
-            },
           },
         },
       },
       particles: {
         color: {
           value: isDark
-            ? ['#3b82f6', '#38bdf8', '#60a5fa', '#0ea5e9', '#818cf8']
-            : ['#1d4ed8', '#2563eb', '#0284c7', '#3b82f6'],
+            ? ['#6EA8FE', '#55B7C8', '#5EB890', '#1D4ED8', '#A9B9BC']
+            : ['#155E75', '#1D4ED8', '#28745A', '#55B7C8'],
         },
         links: {
-          color: isDark ? '#3b82f6' : '#2563eb',
+          color: isDark ? '#6EA8FE' : '#155E75',
           distance: 140,
-          enable: true,
-          opacity: isDark ? 0.35 : 0.3,
-          width: 1.3,
+          enable: false,
         },
         move: {
           direction: 'none',
@@ -56,8 +44,9 @@ export const ParticleBackground: React.FC = () => {
             default: 'out',
           },
           random: true,
-          speed: 1.0,
+          speed: 0.42,
           straight: false,
+          decay: 0.01,
         },
         number: {
           density: {
@@ -65,26 +54,16 @@ export const ParticleBackground: React.FC = () => {
             width: 900,
             height: 900,
           },
-          value: 65, // Generous and visible particle population
+          value: 18,
         },
         opacity: {
-          value: { min: 0.5, max: 0.9 },
-          animation: {
-            enable: true,
-            speed: 0.8,
-            sync: false,
-          },
+          value: { min: 0.18, max: 0.48 },
         },
         shape: {
           type: 'circle',
         },
         size: {
-          value: { min: 2.5, max: 5.5 },
-          animation: {
-            enable: true,
-            speed: 1.2,
-            sync: false,
-          },
+          value: { min: 1.4, max: 3.2 },
         },
       },
       detectRetina: true,

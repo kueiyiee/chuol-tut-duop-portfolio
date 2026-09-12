@@ -82,6 +82,7 @@ export interface SystemMeta {
 
 export interface ProjectItem {
   id: string;
+  slug: string;
   number: string;
   title: string;
   category: 'Academic Research' | 'Academic Project' | 'Academic Fieldwork' | 'Earth Observation';

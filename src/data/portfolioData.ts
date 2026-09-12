@@ -8,7 +8,7 @@ import ecoMonitoringImg from '../assets/images/eco_monitoring_portal_17884768362
 export const personalInfo: PersonalInfo = {
   name: "CHUOL TUT DUOP",
   field: "Natural Resources and Management",
-  university: "Kebri Dahar University",
+  university: "University of Kebri Dahar",
   country: "Ethiopia",
   academicLevel: "B.Sc. Candidate (Class of 2027)",
   expectedGraduation: "July 2027",
@@ -22,11 +22,11 @@ export const personalInfo: PersonalInfo = {
   professionalSummary: "Detail-oriented third-year Natural Resources and Management student seeking an internship to apply academic knowledge, gain practical field experience, and support natural resource conservation and sustainable management. Skilled in environmental management, teamwork, communication, problem-solving, and basic data organization.",
   careerObjective: "To obtain an internship in Natural Resources and Management where I can gain practical field experience, strengthen my professional skills, and contribute to environmental conservation, sustainable resource management, and community development.",
   profileImage: profilePic,
-  cvUrl: "https://drive.google.com/file/d/your-cv-direct-link/view?usp=sharing",
+  cvUrl: "https://drive.google.com/file/d/1ZUDyOdmOg6TYygCeOmeBhakb9-KdCozQ/view?usp=drivesdk",
   reference: {
     name: "Dagnachew Bezaredie",
     title: "Department Head, Natural Resources and Management",
-    institution: "Kebri Dahar University, Ethiopia",
+    institution: "University of Kebri Dahar, Ethiopia",
     phone: "+251 937 612 345",
     telegram: "@Dagnachew Bezaredie"
   }
@@ -131,7 +131,7 @@ export const educationHistory: EducationItem[] = [
   {
     id: "edu-bsc",
     degree: "Bachelor of Science in Natural Resources and Management",
-    institution: "Kebri Dahar University",
+    institution: "University of Kebri Dahar",
     location: "Kebri Dahar, Somali Region, Ethiopia",
     period: "2023 – Present (Expected July 2027)",
     isCurrent: true,
@@ -232,6 +232,7 @@ export const skillCategories: SkillCategory[] = [
 export const projects: ProjectItem[] = [
   {
     id: "project-01",
+    slug: "integrated-watershed-governance",
     number: "01",
     title: "Integrated Watershed & Natural Resource Governance Study",
     category: "Academic Research",
@@ -286,6 +287,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "project-02",
+    slug: "solid-waste-stream-audit",
     number: "02",
     title: "Institutional Solid Waste Stream Audit & Circular Mitigation",
     category: "Academic Project",
@@ -340,6 +342,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "project-03",
+    slug: "ecological-sampling",
     number: "03",
     title: "In-Situ Ecological Sampling & Vegetation Transect Analysis",
     category: "Academic Fieldwork",
@@ -394,6 +397,7 @@ export const projects: ProjectItem[] = [
   },
   {
     id: "project-04",
+    slug: "earth-observation-drought",
     number: "04",
     title: "Regional Earth Observation & Satellite Drought Telemetry Portal",
     category: "Earth Observation",

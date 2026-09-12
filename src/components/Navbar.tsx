@@ -114,15 +114,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
           <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5">
             <ThemeToggle />
 
-            <button
+            <a
+              href={personalInfo.cvUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               id="nav-download-cv-btn"
-              type="button"
-              onClick={onOpenCV}
               className="inline-flex items-center justify-center rounded-full border border-blue-400/30 bg-gradient-to-r from-blue-600 to-indigo-600 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_0_20px_rgba(37,99,235,0.35)] transition-all hover:from-blue-500 hover:to-indigo-500 hover:shadow-[0_0_25px_rgba(37,99,235,0.55)] focus-visible:outline-2 focus-visible:outline-blue-500 sm:px-4"
+              aria-label="View CV"
             >
               <FileText className="h-3.5 w-3.5 sm:mr-1.5" />
               <span className="hidden sm:inline">CV</span>
-            </button>
+            </a>
 
             <div ref={menuRef} className="relative">
               <button
@@ -176,17 +178,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCV }) => {
 
                   <div className="my-2 h-px bg-slate-200 dark:bg-blue-500/20" />
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      onOpenCV();
-                    }}
+                  <a
+                    href={personalInfo.cvUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
                     className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 dark:border-blue-500/20 dark:bg-slate-800/70 dark:text-slate-200 dark:hover:border-sky-400/25 dark:hover:bg-sky-500/10 dark:hover:text-sky-300"
+                    aria-label="View CV"
                   >
                     <FileText className="h-3.5 w-3.5" />
-                    <span>Download CV</span>
-                  </button>
+                    <span>View CV</span>
+                  </a>
                 </div>
               )}
             </div>

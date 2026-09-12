@@ -481,10 +481,12 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                   </li>
 
                   <li>
-                    <button
-                      type="button"
-                      onClick={onOpenCV}
+                    <a
+                      href={personalInfo.cvUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="group flex w-full items-center justify-between gap-3 border-b border-slate-200 py-2 text-left text-sm text-slate-700 transition-colors hover:text-blue-700 dark:border-slate-800 dark:text-slate-200 dark:hover:text-sky-300"
+                      aria-label="View CV"
                     >
                       <span className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
                         <FileText className="h-3.5 w-3.5" />
@@ -494,7 +496,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                         <span>View CV</span>
                         <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </span>
-                    </button>
+                    </a>
                   </li>
                 </ul>
               </div>

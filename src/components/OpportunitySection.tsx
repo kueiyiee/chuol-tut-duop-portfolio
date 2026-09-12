@@ -1,5 +1,6 @@
 import React from 'react';
 import { Briefcase, Compass, FileText, Leaf, Send, Target } from 'lucide-react';
+import { personalInfo } from '../data/portfolioData';
 
 interface OpportunitySectionProps {
   onOpenCV: () => void;
@@ -50,13 +51,15 @@ export const OpportunitySection: React.FC<OpportunitySectionProps> = ({ onOpenCV
                   <Send className="w-4 h-4" />
                   <span>Discuss an opportunity</span>
                 </a>
-                <button
-                  type="button"
-                  onClick={onOpenCV}
+                <a
+                  href={personalInfo.cvUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="ml-2 inline-flex items-center gap-2 px-4 py-3 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-sky-300 transition-colors cursor-pointer"
+                  aria-label="View CV"
                 >
                   <span>View CV</span>
-                </button>
+                </a>
               </div>
             </div>
             <div className="lg:col-span-5 border-l border-slate-200 dark:border-blue-900/30 pl-6">

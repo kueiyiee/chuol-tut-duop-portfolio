@@ -13,8 +13,8 @@ type EducationEntry = {
 const educationEntries: EducationEntry[] = [
   {
     period: '2023 — PRESENT',
-    degree: 'B.Sc. Natural Resources and Management',
-    institution: 'Kebri Dahar University',
+    degree: 'B.Sc. in Natural Resources and Management',
+    institution: 'University of Kebri Dahar',
     status: 'Fourth-Year Student · Expected July 2027',
     location: 'Kebri Dahar, Somali Region, Ethiopia',
     featured: true,

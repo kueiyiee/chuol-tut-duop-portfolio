@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCV }) => {
             </h1>
 
             <p className="hero-subtitle mt-3 text-base font-medium text-slate-700 dark:text-slate-200 sm:text-xl">
-              B.Sc. Candidate · Natural Resources &amp; Management
+              B.Sc. in Natural Resources and Management · University of Kebri Dahar
             </p>
 
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">

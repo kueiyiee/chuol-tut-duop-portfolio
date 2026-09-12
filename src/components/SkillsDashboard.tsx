@@ -77,7 +77,7 @@ export const SkillsDashboard: React.FC = () => {
               <div className="mt-6 pt-4 border-t border-slate-200 dark:border-blue-900/30 flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400">
                 <span>VERIFIED VIA ACADEMIC EVALUATION</span>
                 <span className="font-semibold text-blue-600 dark:text-sky-400">
-                  KEBRI DAHAR UNIVERSITY
+                  UNIVERSITY OF KEBRI DAHAR
                 </span>
               </div>
             </div>

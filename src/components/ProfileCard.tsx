@@ -80,7 +80,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({ className = '' }) => {
 
       {/* Status Bar */}
       <div className="pt-4 border-t border-slate-200 dark:border-blue-900/30 flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400">
-        <span>STATUS: B.SC. CANDIDATE</span>
+        <span>STATUS: B.SC. IN NATURAL RESOURCES AND MANAGEMENT CANDIDATE</span>
         <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
       </div>
     </div>

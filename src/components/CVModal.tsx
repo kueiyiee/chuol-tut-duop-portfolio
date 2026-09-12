@@ -87,8 +87,8 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
   };
 
   const plainTextCV = `CHUOL TUT DUOP - CURRICULUM VITAE
-Natural Resources and Management
-Kebri Dahar University, Ethiopia
+  B.Sc. in Natural Resources and Management
+  University of Kebri Dahar, Ethiopia
 
 📍 Kebri Dahar, Somali Region, Ethiopia
 📞 +251 917491593
@@ -103,8 +103,8 @@ Detail-oriented third-year Natural Resources and Management student seeking an i
 ==================================================
 EDUCATION
 ==================================================
-Bachelor of Science in Natural Resources and Management
-Kebri Dahar University, Ethiopia
+B.Sc. in Natural Resources and Management
+University of Kebri Dahar, Ethiopia
 Expected Graduation: July 2027
 
 Relevant Coursework: Natural Resource Management, Environmental Conservation, Biodiversity Conservation, Watershed Management, Soil and Water Conservation, Climate Change, Forest Resource Management, Wildlife Management, Environmental Impact Assessment, and Sustainable Development.
@@ -129,7 +129,7 @@ TECHNICAL & PROFESSIONAL SKILLS
 ==================================================
 PROJECTS & ACADEMIC EXPERIENCE
 ==================================================
-1. Environmental and Natural Resource Management Studies — Kebri Dahar University
+1. Environmental and Natural Resource Management Studies — University of Kebri Dahar
 - Studied environmental and natural resource management challenges and their effects on communities and ecosystems.
 - Participated in academic activities related to environmental assessment, conservation, and sustainable resource management.
 
@@ -151,7 +151,7 @@ REFERENCE
 ==================================================
 Dagnachew Bezaredie
 Department Head, Natural Resources and Management
-Kebri Dahar University, Ethiopia
+University of Kebri Dahar, Ethiopia
 📞 +251 937 612 345
 Telegram: @Dagnachew Bezaredie`;
 
@@ -195,7 +195,7 @@ Telegram: @Dagnachew Bezaredie`;
               </h2>
               <div className="flex items-center space-x-1.5 text-[9px] sm:text-[10px] font-mono text-slate-500 dark:text-slate-400">
                 <ShieldCheck className="w-3 h-3 text-sky-400 shrink-0" />
-                <span className="truncate">Verified Scholar Dossier · Kebri Dahar University</span>
+                <span className="truncate">Verified Scholar Dossier · University of Kebri Dahar</span>
               </div>
             </div>
           </div>
@@ -313,7 +313,7 @@ Telegram: @Dagnachew Bezaredie`;
                         Curriculum Vitae
                       </p>
                       <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400">
-                        Natural Resources and Management · Kebri Dahar University, Ethiopia
+                        B.Sc. in Natural Resources and Management · University of Kebri Dahar, Ethiopia
                       </p>
                     </div>
                   </div>
@@ -366,14 +366,14 @@ Telegram: @Dagnachew Bezaredie`;
                   Education
                 </h2>
                 <div className="space-y-4">
-                  {/* Kebri Dahar University */}
+                  {/* University of Kebri Dahar */}
                   <div className="space-y-1">
                     <div className="flex justify-between items-baseline font-bold text-slate-900 dark:text-white text-xs sm:text-sm">
-                      <span>Bachelor of Science in Natural Resources and Management</span>
+                      <span>B.Sc. in Natural Resources and Management</span>
                       <span className="text-xs font-mono font-normal text-blue-600 dark:text-sky-400">Expected Graduation: July 2027</span>
                     </div>
                     <div className="text-xs text-blue-600 dark:text-sky-300 font-medium">
-                      Kebri Dahar University, Ethiopia
+                      University of Kebri Dahar, Ethiopia
                     </div>
                     <div className="text-xs text-slate-600 dark:text-slate-400 pt-1 font-light leading-relaxed">
                       <strong className="text-slate-900 dark:text-white font-medium">Relevant Coursework:</strong> Natural Resource Management, Environmental Conservation, Biodiversity Conservation, Watershed Management, Soil and Water Conservation, Climate Change, Forest Resource Management, Wildlife Management, Environmental Impact Assessment, and Sustainable Development.
@@ -466,7 +466,7 @@ Telegram: @Dagnachew Bezaredie`;
                   {/* Project 1 */}
                   <div className="space-y-1.5">
                     <div className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">
-                      Environmental and Natural Resource Management Studies — <span className="font-normal text-blue-600 dark:text-sky-400">Kebri Dahar University</span>
+                      Environmental and Natural Resource Management Studies — <span className="font-normal text-blue-600 dark:text-sky-400">University of Kebri Dahar</span>
                     </div>
                     <ul className="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-1 font-light pl-1">
                       <li>Studied environmental and natural resource management challenges and their effects on communities and ecosystems.</li>
@@ -544,7 +544,7 @@ Telegram: @Dagnachew Bezaredie`;
 
           {/* Official Verification Footer Note */}
           <div className="pt-3 border-t border-slate-200 dark:border-blue-900/40 text-[9px] sm:text-[10px] text-slate-500 dark:text-slate-400 flex flex-col sm:flex-row justify-between font-mono gap-2">
-            <span>Verified Curriculum Vitae · Kebri Dahar University</span>
+            <span>Verified Curriculum Vitae · University of Kebri Dahar</span>
             <span>Document Ref: KDU-NRM-2027 · Ethiopia</span>
           </div>
 

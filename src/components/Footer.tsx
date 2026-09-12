@@ -31,11 +31,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
               </p>
 
               <div className="text-[10px] text-slate-600 dark:text-slate-400 font-mono leading-relaxed">
-                <div>Kebri Dahar University · Somali Region, Ethiopia</div>
+                <div>University of Kebri Dahar · Somali Region, Ethiopia</div>
                 <div>Expected Graduation · July 2027</div>
               </div>
 
-              <div className="text-[10px] text-slate-600 dark:text-slate-400">B.Sc. Candidate · Expected July 2027</div>
+              <div className="text-[10px] text-slate-600 dark:text-slate-400">B.Sc. in Natural Resources and Management Candidate · Expected July 2027</div>
             </div>
           </div>
         </div>

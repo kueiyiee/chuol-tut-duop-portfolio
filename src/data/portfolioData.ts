@@ -10,7 +10,7 @@ export const personalInfo: PersonalInfo = {
   field: "Natural Resources and Management",
   university: "University of Kebri Dahar",
   country: "Ethiopia",
-  academicLevel: "B.Sc. Candidate (Class of 2027)",
+  academicLevel: "B.Sc. in Natural Resources and Management Candidate (Class of 2027)",
   expectedGraduation: "July 2027",
   location: "Kebri Dahar, Somali Region, Ethiopia",
   phone: "+251 917491593",
@@ -18,7 +18,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://www.linkedin.com/in/chuol-tut-duop",
   facebook: "https://www.facebook.com/share/1EebBgYR8s/",
   tagline: "Exploring sustainable solutions for healthier ecosystems, resilient communities, and responsible natural resource management.",
-  bioSummary: "Natural Resources and Management scholar at Kebri Dahar University with advanced academic preparation in environmental conservation, watershed dynamics, biodiversity preservation, and sustainable community stewardship. Dedicated to applying scientific field methods, environmental impact assessment fundamentals, and community-centered conservation principles across diverse ecological landscapes.",
+  bioSummary: "B.Sc. in Natural Resources and Management candidate at the University of Kebri Dahar with advanced academic preparation in environmental conservation, watershed dynamics, biodiversity preservation, and sustainable community stewardship. Dedicated to applying scientific field methods, environmental impact assessment fundamentals, and community-centered conservation principles across diverse ecological landscapes.",
   professionalSummary: "Detail-oriented third-year Natural Resources and Management student seeking an internship to apply academic knowledge, gain practical field experience, and support natural resource conservation and sustainable management. Skilled in environmental management, teamwork, communication, problem-solving, and basic data organization.",
   careerObjective: "To obtain an internship in Natural Resources and Management where I can gain practical field experience, strengthen my professional skills, and contribute to environmental conservation, sustainable resource management, and community development.",
   profileImage: profilePic,
@@ -130,13 +130,13 @@ export const focusAreas: FocusArea[] = [
 export const educationHistory: EducationItem[] = [
   {
     id: "edu-bsc",
-    degree: "Bachelor of Science in Natural Resources and Management",
+    degree: "B.Sc. in Natural Resources and Management",
     institution: "University of Kebri Dahar",
     location: "Kebri Dahar, Somali Region, Ethiopia",
     period: "2023 – Present (Expected July 2027)",
     isCurrent: true,
     expectedGraduation: "July 2027",
-    academicStanding: "Fourth-Year Student · Senior B.Sc. Candidate",
+    academicStanding: "Fourth-Year Student · Senior B.Sc. in Natural Resources and Management Candidate",
     description: "Four-year specialized degree program covering ecological sciences, environmental governance, watershed systems, biodiversity conservation, and environmental impact assessment, concluding with senior research capstone investigations.",
     curriculumProgress: [
       {

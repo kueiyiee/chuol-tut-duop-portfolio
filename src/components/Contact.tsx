@@ -393,7 +393,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCV }) => {
                     CHUOL TUT DUOP
                   </div>
                   <div className="mt-1 text-sm font-medium text-slate-800 dark:text-slate-200">
-                    B.Sc. Candidate
+                    B.Sc. in Natural Resources and Management Candidate
                   </div>
                   <div className="text-sm text-slate-600 dark:text-slate-300">
                     Natural Resources &amp; Management

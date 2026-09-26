@@ -41,8 +41,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCV }) => {
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono gap-4">
-          <div>
+          <div className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left">
             © {currentYear} Chuol Tut Duop. All rights reserved.
+            <div className="flex flex-col items-center gap-0.5 text-[10px] leading-relaxed sm:items-start">
+              <span>Designed &amp; Developed by Kuei Poch Kuei</span>
+              <span>Junior Software Developer &amp; Security Architect</span>
+              <a
+                href="https://www.kueiyiee.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-500 dark:text-slate-400 underline decoration-transparent underline-offset-4 transition-colors hover:text-[#3F6655] hover:decoration-current focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3F6655] dark:hover:text-[#7F9A8A] dark:focus-visible:outline-[#7F9A8A]"
+              >
+                www.kueiyiee.tech
+              </a>
+            </div>
           </div>
 
           <div className="flex items-center space-x-4">
